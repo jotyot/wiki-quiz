@@ -1,14 +1,13 @@
 "use client";
 
-import { createRoom } from "@/app/lib/rooms";
-import { usePathname, useRouter } from "next/navigation";
+import { createRoom } from "@/app/lib/actions";
+import { useRouter } from "next/navigation";
 
 export function CreateRoomButton() {
-  const pathname = usePathname();
   const { push } = useRouter();
 
   async function handleClick() {
-    const roomId = await createRoom();
+    const roomId = await createRoom(true);
     push(`/play/${roomId}`);
   }
 

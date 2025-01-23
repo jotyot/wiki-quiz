@@ -1,9 +1,15 @@
-"use server";
+import { Liveblocks } from "@liveblocks/node";
 
-import { sql } from "@vercel/postgres";
+const liveblocks = new Liveblocks({
+  secret: process.env.LIVEBLOCKS_SECRET!,
+});
 
-export async function createRoom() {
-  const { rows } =
-    await sql`INSERT INTO public.rooms (id) VALUES (gen_random_uuid()) RETURNING id`;
-  return rows[0].id;
+export async function tryCreateRoom(roomId: string, listed: boolean) {
+  await liveblocks.createRoom(roomId, {
+    defaultAccesses: ["room:write"],
+    metadata: {
+      type: listed ? "listed" : "unlisted",
+      lastAccessedAt: new Date().toISOString(),
+    },
+  });
 }

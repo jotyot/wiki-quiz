@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@liveblocks/client": "^2.16.1",
+    "@liveblocks/node": "^2.16.1",
     "@liveblocks/react": "^2.16.1",
     "@vercel/postgres": "^0.10.0",
     "next": "15.1.6",
