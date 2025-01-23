@@ -1,10 +1,7 @@
-import { Room } from "./Room";
-import { CollaborativeApp } from "./CollaborativeApp";
+import { Room } from "./room";
+import { Game } from "./ui/game";
+import { CreateRoomButton } from "./ui/home/create-room-button";
 
 export default function Page() {
-  return (
-    <Room>
-      <CollaborativeApp />
-    </Room>
-  );
+  return <CreateRoomButton />;
 }
