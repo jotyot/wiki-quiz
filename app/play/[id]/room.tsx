@@ -19,7 +19,7 @@ export function Room({ children, id }: Props) {
         "pk_dev_HKpZAC7gNHOSnq1TRe21u0VocRojZ6AKXcA1lQqbWIom3nTYEV5ib2rtBlI60VPw"
       }
     >
-      <RoomProvider id={id}>
+      <RoomProvider id={id} initialPresence={{ name: "Player", score: 0 }}>
         <ClientSideSuspense fallback={<div>Loading…</div>}>
           {children}
         </ClientSideSuspense>

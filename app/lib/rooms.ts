@@ -9,7 +9,6 @@ export async function tryCreateRoom(roomId: string, listed: boolean) {
     defaultAccesses: ["room:write"],
     metadata: {
       type: listed ? "listed" : "unlisted",
-      lastAccessedAt: new Date().toISOString(),
     },
   });
 }
